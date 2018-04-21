@@ -230,11 +230,11 @@ UIEdgeInsets scrollViewOriginalContentInsets;
         CGFloat contentOffsetPt;
         if (self.isVertical) {
             scrollViewContentSize = self.scrollView.contentSize.height;
-            scrollOffsetThreshold = scrollViewContentSize-self.scrollView.bounds.size.height;
+            scrollOffsetThreshold = fmax(0, scrollViewContentSize-self.scrollView.bounds.size.height);
             contentOffsetPt = contentOffset.y;
         } else {
             scrollViewContentSize = self.scrollView.contentSize.width;
-            scrollOffsetThreshold = scrollViewContentSize-self.scrollView.bounds.size.width;
+            scrollOffsetThreshold = fmax(0, scrollViewContentSize-self.scrollView.bounds.size.width);
             contentOffsetPt = contentOffset.x;
         }
         
